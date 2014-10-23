@@ -1,0 +1,32 @@
+{
+  "name": "puzzleCanvasDRM",
+  "description": "Puzzle Canvas joke DRM",
+  "version": "1.0.0",
+  "homepage": "https://github.com/azu/puzzleCanvasDRM/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/azu/puzzleCanvasDRM.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/*.js"
+  },
+  "directories": {
+    "test": "test/"
+  },
+  "author": "azu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/azu/puzzleCanvasDRM/issues"
+  },
+  "devDependencies": {
+    "espower-loader": "^0.9.1",
+    "intelli-espower-loader": "^0.4.0",
+    "mocha": "^2.0.1",
+    "power-assert": "^0.9.1",
+    "webpack": "^1.4.8"
+  },
+  "dependencies": {
+    "delorean.js": "^0.8.5"
+  }
+}
