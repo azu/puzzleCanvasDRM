@@ -28,6 +28,7 @@
     "webpack": "^1.4.8"
   },
   "dependencies": {
-    "delorean.js": "^0.8.5"
+    "delorean.js": "^0.8.5",
+    "shuffle-array": "0.0.2"
   }
 }
