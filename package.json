@@ -28,7 +28,6 @@
     "webpack": "^1.4.8"
   },
   "dependencies": {
-    "blueimp-canvas-to-blob": "git://github.com/blueimp/JavaScript-Canvas-to-Blob",
     "delorean.js": "^0.8.5"
   }
 }
