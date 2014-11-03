@@ -9,6 +9,7 @@
   },
   "main": "index.js",
   "scripts": {
+    "watch": "webpack --devtool inline-source-map --watch lib/index.js dist/app.js",
     "test": "mocha test/*.js"
   },
   "directories": {
@@ -27,6 +28,7 @@
     "webpack": "^1.4.8"
   },
   "dependencies": {
+    "blueimp-canvas-to-blob": "git://github.com/blueimp/JavaScript-Canvas-to-Blob",
     "delorean.js": "^0.8.5"
   }
 }
