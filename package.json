@@ -10,6 +10,7 @@
   "main": "index.js",
   "scripts": {
     "watch": "webpack -d --watch lib/index.js dist/app.js",
+    "watch:encode": "webpack -d --watch encode/encode-index.js dist/encode-app.js",
     "test": "mocha test/*.js"
   },
   "directories": {
