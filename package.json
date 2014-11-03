@@ -9,7 +9,7 @@
   },
   "main": "index.js",
   "scripts": {
-    "watch": "webpack --devtool inline-source-map --watch lib/index.js dist/app.js",
+    "watch": "webpack -d --watch lib/index.js dist/app.js",
     "test": "mocha test/*.js"
   },
   "directories": {
@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "delorean.js": "^0.8.5",
+    "lodash": "^2.4.1",
     "shuffle-array": "0.0.2"
   }
 }
