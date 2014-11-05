@@ -9,8 +9,9 @@
   },
   "main": "index.js",
   "scripts": {
-    "watch": "webpack -d --watch lib/index.js dist/app.js",
+    "watch:decode": "webpack -d --watch decode/decode-index.js dist/decode-app.js",
     "watch:encode": "webpack -d --watch encode/encode-index.js dist/encode-app.js",
+    "dist:lib": "webpack --config dist-webpack.config.js",
     "test": "mocha test/*.js"
   },
   "directories": {
