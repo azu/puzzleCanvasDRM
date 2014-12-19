@@ -52,30 +52,47 @@
 	
 	var canvas = document.getElementById("js-canvas");
 	var fetchImage = __webpack_require__(/*! ../lib/fetchImage */ 1);
-	var renderResult = null;
 	fetchImage("../img/toa.jpg").then(function (image) {
-	    return __webpack_require__(/*! ../lib/encodePuzzle */ 2)(canvas, image).then(function (result) {
-	        renderResult = result;
-	    });
+	    __webpack_require__(/*! ../lib/canvasUtil */ 3).fitCanvasWithImage(canvas, image);
+	    var ctx = canvas.getContext("2d");
+	    ctx.drawImage(image, 0, 0,
+	        image.width, image.height);
 	}).catch(function (error) {
 	    console.log(error.stack);
 	    console.log(error);
 	});
 	
+	function render() {
+	    return fetchImage("../img/toa.jpg").then(function (image) {
+	        return __webpack_require__(/*! ../lib/encodePuzzle */ 2)(canvas, image).then(function (result) {
+	            return result
+	        });
+	    });
+	}
+	document.getElementById("js-encode-button").addEventListener("click", function () {
+	    render().catch(function (error) {
+	        console.log(error.stack);
+	        console.log(error);
+	    });
+	});
 	document.getElementById("js-save-button").addEventListener("click", function () {
-	    if (renderResult == null) {
-	        return;
-	    }
-	    function saveJSON() {
+	
+	    function saveJSON(result) {
 	        var JSONBlob = new Blob(
-	            [JSON.stringify(renderResult.imageMeta)],
+	            [JSON.stringify(result.imageMeta)],
 	            {type: 'application/json'}
 	        );
 	        window.saveAs(JSONBlob, "encoded.json");
 	    }
 	
-	    __webpack_require__(/*! ../lib/canvasUtil */ 3).saveCanvas(canvas, "encoded.png", saveJSON());
-	
+	    render().then(function (result) {
+	        saveJSON(result);
+	        __webpack_require__(/*! ../lib/canvasUtil */ 3).saveCanvas(canvas, "encoded.png", saveJSON());
+	    }).catch(function (error) {
+	        console.log(error.stack);
+	        console.log(error);
+	    });
+	    ;
 	});
 
 /***/ },
